@@ -4,3 +4,7 @@
 - pluralize function 
 - flipNHeads function 
 - clock function
+- roll Dice
+- contains Duplicate
+- Calculate Average
+- Array of Array
