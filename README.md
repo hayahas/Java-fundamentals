@@ -8,3 +8,5 @@
 - contains Duplicate
 - Calculate Average
 - Array of Array
+- Check Weather
+- Tally
