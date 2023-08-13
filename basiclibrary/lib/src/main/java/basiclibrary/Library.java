@@ -3,8 +3,7 @@
  */
 package basiclibrary;
 
-import java.util.ArrayList;
-import java.util.Random;
+import java.util.*;
 
 public class Library {
 //    public boolean someLibraryMethod() {
@@ -59,5 +58,47 @@ public class Library {
         }
 
         return min;
+    }
+
+    static void checkWeather(int[][] arr) {
+        Set<Integer> unique = new HashSet<>();
+        for (int[] row : arr) {
+            for (int element : row) {
+                unique.add(element);
+            }
+        }
+
+        int max=0, min=1000;
+        for (int i : unique) {
+            if(i> max) {
+                max=i; }
+            else if (i<min) {
+                min=i;
+            }
+        }
+        System.out.println("High : " + max);
+        System.out.println("Low : " + min);
+
+        for (int i = min; i <= max; i++) {
+            if (!unique.contains(i)) {
+                System.out.println("Never Saw temp : " + i);
+            }
+        }
+    }
+    static String tally(List<String> votes){
+        HashMap<String,Integer> countVotes = new HashMap<>();
+        for (String vote : votes) {
+            countVotes.put(vote, countVotes.getOrDefault(vote, 0) + 1);
+        }
+        int max =0;
+        String highest="";
+        for(String name : countVotes.keySet()){
+            if(countVotes.get(name) > max){
+                max=countVotes.get(name);
+                highest= name;
+            }
+        }
+
+        return highest;
     }
 }
