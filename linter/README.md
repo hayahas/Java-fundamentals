@@ -1,4 +1,4 @@
-#Linter Documentation
+# Linter Documentation
 
 In Linter Application, it reads the gates.js file and tracks it's lines 
 it checks the semicolons of every line except lines with if and else statments bc
