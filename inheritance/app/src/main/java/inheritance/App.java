@@ -6,13 +6,14 @@ package inheritance;
 public class App {
 
     public static void main(String[] args) {
+        Theatre t=new Theatre("roman");
+         Review r= new Review("h","nice",4,"titanic");
+        Review r2= new Review("hh","nice",4);
+        System.out.println(t.addReview(r2));
+        System.out.println(t.addReviewWithName(r,"titanic"));
 
-       // Resturant resturant =new Resturant("KFC");
-       // System.out.println(resturant.toString());
-//
-Review r = new Review("tastyyyy","hayaaa", 4);
-////        System.out.println(r.toString());
-    //Review r = new Review();
-        System.out.println(r.toString());
+        Shop s=new Shop("h","hi","10.0");
+        Review r1= new Review("haya","nice",4);
+        System.out.println(s.addReview(r1));
     }
 }
