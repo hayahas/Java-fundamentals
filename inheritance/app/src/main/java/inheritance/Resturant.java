@@ -2,20 +2,19 @@ package inheritance;
 
 import java.util.ArrayList;
 
-public class Resturant {
-
+public class Resturant implements canReview {
 
     private String resturantName;
-     private int starsOutOf5;
-     private double priceCategory;
+    private int starsOutOf5;
+    private double priceCategory;
 
-     private ArrayList <Review> Reviews ;
+    private ArrayList<Review> resturantReviews;
 
-    public Resturant(String resturantName,int starsOutOf5,double priceCategory){
-           this.resturantName=resturantName;
-           this.starsOutOf5= (int)Math.floor(Math.random() * (5 - 0 + 1) + 0);
-           this.priceCategory=priceCategory;
-           this.Reviews= new ArrayList<>();
+    public Resturant(String resturantName, int starsOutOf5, double priceCategory) {
+        this.resturantName = resturantName;
+        this.starsOutOf5 = (int) Math.floor(Math.random() * (5 - 0 + 1) + 0);
+        this.priceCategory = priceCategory;
+        this.resturantReviews = new ArrayList<>();
     }
 
     public void setResturantName(String resturantName) {
@@ -43,96 +42,36 @@ public class Resturant {
     }
 
     public void setReviews(ArrayList<Review> reviews) {
-        Reviews = reviews;
+        resturantReviews = reviews;
     }
 
     public ArrayList<Review> getReviews() {
-        return Reviews;
+        return resturantReviews;
     }
 
-
-    public void addReview(Review review){
-        Reviews.add(review);
+    @Override
+    public String addReview(Review review) {
+        resturantReviews.add(review);
+        updateStars();
+        return ("Author : " + review.getAuthor() + ", " +
+                "Review : " + review.getBody() + ", " +
+                "Rate : " + review.getNumOfStarts() + ". ");
 
     }
-    package inheritance.app.src.main.java.inheritance;
-
-import java.util.ArrayList;
-
-    public class Restaurant {
-        private String name;
-        private int stars;
-        private int priceCategory;
-        private ArrayList<Review> reviews;
-
-        public Restaurant(String name, int stars, int priceCategory) {
-            this.name = name;
-            this.stars = Math.max(0, Math.min(5, stars)); //because it's from 1-5
-            this.priceCategory = priceCategory;
-            this.reviews = new ArrayList<>();
+    public void updateStars() {
+        int totalStars = 0;
+        for (Review review : resturantReviews) {
+            totalStars += review.getNumOfStarts();
         }
-
-        public String getName() {
-            return name;
-        }
-
-        public void setName(String name) {
-            this.name = name;
-        }
-
-        public int getStars() {
-            return stars;
-        }
-
-        public void setStars(int stars) {
-            this.stars = stars;
-        }
-
-        public int getPriceCategory() {
-            return priceCategory;
-        }
-
-        public void setPriceCategory(int priceCategory) {
-            this.priceCategory = priceCategory;
-        }
-
-        public ArrayList<Review> getReviews() {
-            return reviews;
-        }
-
-        public void setReviews(ArrayList<Review> reviews) {
-            this.reviews = reviews;
-        }
-
-        public void addReview(Review review) {
-            reviews.add(review);
-            updateStars();
-        }
-
-        private void updateStars() {
-            int totalStars = 0;
-            for (Review review : reviews) {
-                totalStars += review.getNumOfStarts();
-            }
-            if (!reviews.isEmpty()) {
-                stars = totalStars / reviews.size();
-            } else {
-                stars = 0;
-            }
-        }
-
-        @Override
-        public String toString() {
-            return "Restaurant{" +
-                    "name='" + name + '\'' +
-                    ", stars=" + stars +
-                    ", priceCategory=" + priceCategory +
-                    '}';
+        if (!resturantReviews.isEmpty()) {
+            starsOutOf5 = totalStars / resturantReviews.size();
+        } else {
+            starsOutOf5 = 0;
         }
     }
+
     @Override
     public String toString() {
-        return ("Welcome to " + resturantName + " Resturants"
-        + "stars : " + starsOutOf5 +" , Price Category" + priceCategory );
+        return ("Welcome to " + resturantName + " resturant");
     }
 }

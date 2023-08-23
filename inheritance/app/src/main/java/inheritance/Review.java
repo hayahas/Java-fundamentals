@@ -6,8 +6,25 @@ public class Review{
     private String author;
     private int numOfStarts;
     Resturant res;
+    private  String movieName;
+
+    public Review(String author,String body,int numOfStarts){
+        this.body=body;
+        this.author=author;
+        this.numOfStarts=numOfStarts;
+
+    }
+
+    public Review(String author,String body,int numOfStarts,String movieName){
+        this.body=body;
+        this.author=author;
+        this.numOfStarts=numOfStarts;
+        this.movieName=movieName;
+    }
+
 
     public Review(String body,String author,int numOfStarts,Resturant res){
+
         this.body=body;
         this.author=author;
         this.numOfStarts=numOfStarts;
@@ -36,6 +53,11 @@ public class Review{
 
     public int getNumOfStarts() {
         return numOfStarts;
+    }
+    public void setmovieName(String movieName) {this.movieName = movieName;}
+
+    public String getmovieName() {
+        return movieName;
     }
 
     @Override
