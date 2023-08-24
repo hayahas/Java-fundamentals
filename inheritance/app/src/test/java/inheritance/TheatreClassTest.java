@@ -53,7 +53,7 @@ public class TheatreClassTest {
         App sut =new App();
         ArrayList<Review> shopReview= new ArrayList<>();
         Theatre t = new Theatre("roman");
-        Review r = new Review("graet show","haya", 3,"titanic");
+        Review r = new Review("haya","graet show", 3,"titanic");
 
         String result=t.addReviewWithName(r,"titanic");
         Assertions.assertEquals( "MovieName : " +   "titanic"  + ", " +
