@@ -31,6 +31,9 @@ public class Shop implements canReview {
                 "Review : " + review.getBody() + ", " +
                 "Rate : " + review.getNumOfStarts() + ". ");
     }
+
+
+
     @Override
     public String toString() {
         return ("Welcome To " + name + " shop");

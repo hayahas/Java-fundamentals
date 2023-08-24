@@ -58,6 +58,8 @@ public class Resturant implements canReview {
                 "Rate : " + review.getNumOfStarts() + ". ");
 
     }
+
+
     public void updateStars() {
         int totalStars = 0;
         for (Review review : resturantReviews) {
